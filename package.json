@@ -14,8 +14,10 @@
     "@nuxtjs/axios": "^5.0.0",
     "cross-env": "^5.2.0",
     "koa": "^2.5.2",
+    "node-sass": "^4.10.0",
     "nuxt": "^2.0.0",
-    "nuxt-netlify-http2-server-push": "^0.1.0"
+    "nuxt-netlify-http2-server-push": "^0.1.0",
+    "sass-loader": "^7.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",

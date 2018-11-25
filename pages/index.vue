@@ -2,6 +2,7 @@
   <section class="container">
     <div>
       <logo/>
+      <input type="email" placeholder="Enter Your Email"><button>Get Beta Access</button>
     </div>
   </section>
 </template>
@@ -16,8 +17,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+@import url('~/assets/styles.scss');
 .container {
   min-height: 100vh;
   display: flex;
