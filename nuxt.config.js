@@ -41,11 +41,15 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-netlify-http2-server-push',
+     { resources: [
+        { path: '**/*.js', as: 'script' }
+      ]
+    }
+  ]
   ],
-  /*
-  ** Axios module configuration
-  */
+
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
