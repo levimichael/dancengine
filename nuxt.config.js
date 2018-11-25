@@ -55,7 +55,6 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extractCSS: true,
     splitChunks: {
       layouts: true,
       pages: true,
