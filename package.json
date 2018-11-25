@@ -1,7 +1,7 @@
 {
-  "name": "dancengine-platform",
+  "name": "dancengine",
   "version": "1.0.0",
-  "description": "My exceptional Nuxt.js project",
+  "description": "The Electronic Music Learning Platform",
   "author": "Levi Whalen",
   "private": true,
   "scripts": {
