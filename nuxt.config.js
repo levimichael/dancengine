@@ -2,7 +2,9 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'spa',
-
+  render: {
+    http2: { push: true, pushAssets: null }
+  },
   /*
   ** Headers of the page
   */
