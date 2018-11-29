@@ -4,7 +4,7 @@
   </div>
 </template>
 <style scoped>
-img{
+img {
   margin-bottom: 4em;
 }
 </style>

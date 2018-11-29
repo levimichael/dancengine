@@ -12,9 +12,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -32,6 +30,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
+  plugins: ['~/plugins/vee-validate'],
 
   /*
   ** Nuxt.js modules
@@ -39,12 +38,12 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    ['nuxt-netlify-http2-server-push',
-     { resources: [
-        { path: '**/*.js', as: 'script' }
-      ]
-    }
-  ]
+    [
+      'nuxt-netlify-http2-server-push',
+      {
+        resources: [{ path: '**/*.js', as: 'script' }]
+      }
+    ]
   ],
 
   axios: {
@@ -63,7 +62,6 @@ module.exports = {
       pages: true,
       commons: true
     },
-    extend(config, ctx) {
-    }
+    extend(config, ctx) {}
   }
 }
