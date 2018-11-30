@@ -2,14 +2,20 @@
   <section class="container">
     <div>
       <logo/>
-      <input
-        v-validate="'required|email'"
-        v-on:keydown.enter="submitForm"
-        type="email"
-        placeholder="Enter Your Email"
-        v-model="email"
-      >
-      <button @click="submitForm">Get Beta Access</button>
+      <div v-if="!emailSent">
+        <input
+          v-validate="'required|email'"
+          v-on:keydown.enter="submitForm"
+          type="email"
+          placeholder="Enter Your Email"
+          v-model="email"
+          name="email"
+        >
+        <button @click="submitForm">Get Beta Access</button>
+      </div>
+      <div v-else>
+        <h3>Thank you, you'll receive an email confirmation shortly!</h3>
+      </div>
     </div>
   </section>
 </template>
@@ -23,7 +29,8 @@ export default {
   data: function() {
     return {
       email: null,
-      emailSent: false
+      emailSent: false,
+      error: null
     }
   },
   methods: {
@@ -37,10 +44,14 @@ export default {
             url:
               'https://us-central1-dancengine-221904.cloudfunctions.net/subscribe',
             headers: { 'Content-Type': 'application/json' },
-            data: vm.email
-          }).then(res => {
-            console.log(res.data)
+            data: { email: vm.email }
           })
+            .then(res => {
+              vm.emailSent = true
+            })
+            .catch(err => {
+              vm.error = err
+            })
         }
       })
     }
@@ -50,6 +61,9 @@ export default {
 
 <style lang="scss">
 @import url('~/assets/styles.scss');
+h3 {
+  font-family: sans-serif;
+}
 .container {
   min-height: 100vh;
   display: flex;
