@@ -7,6 +7,7 @@
         v-on:keydown.enter="submitForm"
         type="email"
         placeholder="Enter Your Email"
+        v-model="email"
       >
       <button @click="submitForm">Get Beta Access</button>
     </div>
@@ -15,18 +16,31 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-
 export default {
   components: {
     Logo
   },
+  data: function() {
+    return {
+      email: null,
+      emailSent: false
+    }
+  },
   methods: {
     submitForm() {
+      let vm = this
       this.$validator.validate().then(result => {
         if (!result) {
-          alert('not valid')
         } else {
-          alert('valid')
+          this.$axios({
+            method: 'post',
+            url:
+              'https://us-central1-dancengine-221904.cloudfunctions.net/subscribe',
+            headers: { 'Content-Type': 'application/json' },
+            data: vm.email
+          }).then(res => {
+            console.log(res.data)
+          })
         }
       })
     }
